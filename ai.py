@@ -49,7 +49,6 @@ class AI:
         direction, _ = self.expectimax(self.root)
         return direction
 
-    # TODO (optional): implement method for extra credits
     def compute_decision_ec(self):
         return random.randint(0, 3)
 
