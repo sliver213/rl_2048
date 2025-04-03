@@ -5,7 +5,7 @@ from game import Game
 from ai import AI
 from test import test, test_ec
 
-random.seed(0)
+random.seed(42)
 
 MAXC = 255
 WHITE = (240, 240, 240)
@@ -37,6 +37,11 @@ EC_LABEL_POS = (350, 10)
 PADDING = 5
 
 MAX_CORD = 13
+import copy, random
+from game import Game
+
+MOVES = {0: 'up', 1: 'left', 2: 'down', 3: 'right'}
+MAX_PLAYER, CHANCE_PLAYER = 0, 1 
 
 class GameRunner:
     def __init__(self):
@@ -89,10 +94,14 @@ class GameRunner:
 
             if self.auto and not game_over:
                 ai = AI(self.game.current_state())
+                print("current state: ", self.game.current_state())
                 if not self.ec:
-                    direction = ai.compute_decision() 
+                    direction, tree = ai.compute_decision() 
+                    print("direction: ", direction)
+                    print("tree: ", tree)
                 else:
                     direction = ai.compute_decision_ec() 
+                    print("direction: ", direction)
 
             if direction != None:
                 self.game.move_and_place(direction)
