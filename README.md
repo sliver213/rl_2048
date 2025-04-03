@@ -1,8 +1,5 @@
 Assignment 2: 2048
 =========
-DO NOT FORK THIS REPO
-----
-**Work on it in your local machine and do not push anything publicly.**
 
 Implement a game AI for the 2048 game based on expectimax search. 
 The base game engine uses code from [here](https://gist.github.com/lewisjdeane/752eeba4635b479f8bb2). 
